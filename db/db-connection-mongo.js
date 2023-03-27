@@ -2,7 +2,6 @@
 require('dotenv').config()
 const mongoose = require('mongoose');
 
-console.log (process.env.MONGO_CONNECT_APLICATION)
 
 //1.0.0- Creamos conexion a la db:
 const getConnection = async() => {
