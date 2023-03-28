@@ -31,6 +31,11 @@ const StockSchema = Schema({
         ref: 'ProductType',
         required: true,
     },
+    itemStatus: {
+        type: Schema.Types.ObjectId,
+        ref: 'itemStatus',
+        required: true,
+    },
     description: {
         type: String,
         required: false,
@@ -74,7 +79,6 @@ const StockSchema = Schema({
         ], 
         default: 'ourStock'
     },
-    
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
