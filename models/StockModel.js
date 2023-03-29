@@ -22,18 +22,19 @@ const StockSchema = Schema({
         required: false,
     },
     season: {
-        type: Schema.Types.ObjectId,
-        ref: 'Season',
-        required: true,
+        type: String,
+        enum: [
+            'Winter season', 
+            'Spring season',
+            'Summer season',
+            'Fall season',
+            'All season'
+        ],
+        default: 'All season'
     },
     productType: {
         type: Schema.Types.ObjectId,
         ref: 'ProductType',
-        required: true,
-    },
-    itemStatus: {
-        type: Schema.Types.ObjectId,
-        ref: 'itemStatus',
         required: true,
     },
     description: {
@@ -70,14 +71,18 @@ const StockSchema = Schema({
         type: Number,
         required: true,
     },
+    itemQuantity: {
+        type: Number,
+        required: true,
+    },
     itemStored: {
         type: String,
         required: false,
         enum: [
-            'partnerStock', 
-            'ourstock'
+            'partnerWareHouse', 
+            'ourWareHouse'
         ], 
-        default: 'ourStock'
+        default: 'ourWareHouse'
     },
     user: {
         type: Schema.Types.ObjectId,
