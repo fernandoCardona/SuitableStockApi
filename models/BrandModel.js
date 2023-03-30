@@ -20,7 +20,19 @@ const BrandSchema = Schema({
             'girl',
             'unisex'
         ], 
-        default: 'male'
+        default: 'unisex'
+    },
+    brandMarket: {
+        type: String,
+        required: true,
+        enum: [
+            'skateboard', 
+            'snowboard',
+            'streetwear',
+            'surf',
+            'others'
+        ], 
+        default: 'unisex'
     },
     brandStatus: {
         type: String,

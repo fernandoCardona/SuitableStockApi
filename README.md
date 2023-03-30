@@ -2,6 +2,8 @@
 refernce video curse: 
 https://www.youtube.com/watch?v=aUevHAev4Ts&list=PLyUE2hSTFifOXhg0hdJdelErCddV4k-jB&index=2
 
+https://www.youtube.com/watch?v=aUevHAev4Ts&list=PLyUE2hSTFifOXhg0hdJdelErCddV4k-jB
+
 ## **Descriciopn del Proyecto:**
 -Api control de Stock de Suitable agency
 

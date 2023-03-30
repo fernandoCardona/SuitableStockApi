@@ -150,7 +150,7 @@ const usersList = ( req, res ) => {
     page = parseInt( page );
 
     //Consulta con mongoose-pagination:
-    let itemPerPage = 5;
+    let itemPerPage = 10;
     User.find().sort('_id') .paginate( page, itemPerPage, async( error, users, total ) => {
 
         if ( error || !users ) {

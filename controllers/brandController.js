@@ -126,6 +126,7 @@ const brandsList = ( req, res ) => {
 }
 //2.5.1- creamos el subir logo del brand:
 const uploadLogo = ( req, res ) => {
+    
     //Obtener fichero imagen y combrobar que existe:
     if (!req.file) {
         return res.status(400).send({
@@ -135,6 +136,7 @@ const uploadLogo = ( req, res ) => {
     }
     //Obtener nombre del archivo:
     let logo = req.file.originalname;
+     
 
     //Obtener extension del archivo:
     const logoSplit = logo.split('\.');
@@ -155,6 +157,7 @@ const uploadLogo = ( req, res ) => {
     }
     
     //Si la extension es correcta, guardamos la imagen en la base de datos:
+   
     Brand.findOneAndUpdate( {_id: req.brand.id}, {logo: req.file.filename}, {new: true}, (error, brandUpdated) => {
 
         if (error || !brandUpdated) {
@@ -167,7 +170,7 @@ const uploadLogo = ( req, res ) => {
         return res.status(200).send({
             status: 'success',
             msg: 'Metodo de Subida imagenes.', 
-            user: brandUpdated,
+            brand: brandUpdated,
             file: req.file
         });
     })  
