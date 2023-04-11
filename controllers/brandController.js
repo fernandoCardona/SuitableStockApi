@@ -136,7 +136,10 @@ const uploadLogo = ( req, res ) => {
     }
     //Obtener nombre del archivo:
     let logo = req.file.originalname;
-     
+
+    //obtener id ma la marca:
+    let id = req.body.id
+    //console.log(id)
 
     //Obtener extension del archivo:
     const logoSplit = logo.split('\.');
@@ -158,7 +161,7 @@ const uploadLogo = ( req, res ) => {
     
     //Si la extension es correcta, guardamos la imagen en la base de datos:
    
-    Brand.findOneAndUpdate( {_id: req.brand.id}, {logo: req.file.filename}, {new: true}, (error, brandUpdated) => {
+    Brand.findOneAndUpdate( {_id: id}, {logo: req.file.filename}, {new: true}, (error, brandUpdated) => {
 
         if (error || !brandUpdated) {
             return res.status(500).send({
@@ -193,7 +196,7 @@ const showLogo = ( req, res ) => {
         //Devolver Respuesta con la avatarImg:
         return res.sendFile(path.resolve(logoPath));
     });
-    //devolvemos el file avatarImg:
+    //devolvemos el file logoImg:
 
     
 }
@@ -222,7 +225,35 @@ const profile = ( req, res ) => {
     });
     
 }
-//16.1.0- Eliminar publicaciones:
+//2.8.1- Eliminar publicaciones:
+const updateBrand = async(req, res) => {
+    try {
+        const brandId = req.params.id;
+        
+        //Find con la condicion del id:
+        let brand = await Brand.findById(brandId);
+      
+        if(!brand) {
+            return res.send('Marca no existe');
+        }
+
+        brand.name = req.body.name;
+        brand.surname = req.body.surname;
+        brand.brandTarget = req.body.brandTarget;
+        brand.brandMarket = req.body.brandMarket;
+        brand.brandStatus = req.body.brandStatus;
+        brand.updateDate = req.body.updateDate;
+       
+        brand = await brand.save();
+        res.send(brand);
+
+    } catch (error) { 
+        console.error(error);
+    }
+    //Obtener id de la publicacion de la url:
+    
+}
+//2.9.1- Eliminar publicaciones:
 const deleteBrand = (req, res) => {
     //Obtener id de la publicacion de la url:
     const brandId = req.params.id;
@@ -244,12 +275,14 @@ const deleteBrand = (req, res) => {
     });
 }
 
+
 module.exports =  {
     create,
     brandsList,
     uploadLogo,
     showLogo,
     profile,
-    deleteBrand
+    deleteBrand,
+    updateBrand
 
 }

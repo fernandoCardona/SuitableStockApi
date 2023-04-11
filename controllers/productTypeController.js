@@ -62,10 +62,10 @@ const create = (req, res) => {
         }
         
 
-        //Crear el oobj de usuario con la password cifraza
+        //Crear el oobj de productType 
         let productType_to_save = new ProductType(params);
         console.log(productType_to_save)
-        //Guardar ususario en la base de datos:
+        //Guardar productType en la base de datos:
         productType_to_save.save( ( error, productTypeStored ) => {
             if (error || !productTypeStored) {//console.log(error);
                 return res.status(500).send({
@@ -123,6 +123,10 @@ const productTypeList = ( req, res ) => {
 
 
     } ); 
+}
+//2.4.1- creamos el lista de brands:
+const productTypeUpdate = ( req, res ) => {
+
 }
 //16.1.0- Eliminar publicaciones:
 const deleteProductType = (req, res) => {

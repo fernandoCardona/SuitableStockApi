@@ -30,7 +30,8 @@ const BrandSchema = Schema({
             'snowboard',
             'streetwear',
             'surf',
-            'others'
+            'others',
+            'multi'
         ], 
         default: 'unisex'
     },

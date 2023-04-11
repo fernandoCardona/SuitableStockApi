@@ -32,18 +32,10 @@ router.post("/uploadLogo", [check.auth, uploads.single('file0')], BrandControlle
 router.get("/showLogo/:file", BrandController.showLogo );
 //2.7.2- Creamos la ruta 'Profile' para brand:
 router.get("/profile/:id", check.auth, BrandController.profile);
-//2.9.2-Ruta de borrar usuario:
-router.delete("/delete/:id", check.auth,  BrandController.deleteBrand);
+//2.8.2-Ruta de Update brand:
+router.put("/update/:id", check.auth, BrandController.updateBrand);
+//2.9.2-Ruta de borrar brand:
+router.delete("/delete/:id", check.auth, BrandController.deleteBrand);
 
-
-
-//4.2.3-Ruta de cruta actualizar brand:
-router.put('/', (req, res) => {
-    res.send('Hola mundo estoy en la ruta actualizar brand');
-});
-//4.2.4-Ruta de borrar brand:
-router.delete('/', (req, res) => {
-    res.send('Hola mundo estoy en la ruta borrar brand');
-});
 
 module.exports = router;

@@ -13,7 +13,7 @@ const router = Router();
 //4.2.2-Ruta de crearun stock:
 router.post("/create", check.auth, StockController.create);
 //4.2.2-Ruta de ver stock:
-router.get("/stock", check.auth, StockController.stockList);
+router.get("/stockList", check.auth, StockController.stockList);
 
 
 module.exports = router;

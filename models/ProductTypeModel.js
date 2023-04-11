@@ -14,6 +14,21 @@ const ProductTypeSchema = Schema({
             'inactive'
         ]
     },
+    categoty: {
+        type: String,
+        enum: [
+            'Skateboard', 
+            'Snowboard',
+            'Surf',
+            'Roller',
+            'Life style',
+            'Others'
+        ],
+        required: false, 
+        default: 'Others'
+        
+    }
+    ,
     createDate: {
         type: Date,
         equired: true,
