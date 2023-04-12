@@ -124,7 +124,7 @@ const productTypeList = ( req, res ) => {
 
     } ); 
 }
-//2.4.1- creamos el lista de brands:
+//2.4.1- update protoType:
 const productTypeUpdate = ( req, res ) => {
 
 }
